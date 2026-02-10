@@ -69,6 +69,8 @@ class CopyFileAsBase64WebUrlCommand(sublime_plugin.WindowCommand):
 class Base64SaveAsBinaryCommand(sublime_plugin.TextCommand): 
     def run(self, edit):
         def save_decoded_binary(selected_path):
+            if not selected_path:
+                return
             with open(selected_path, 'wb') as f:
                 f.write(binary_data)
 
